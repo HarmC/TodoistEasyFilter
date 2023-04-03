@@ -13,6 +13,7 @@ function myFunction(bComputer) {
 	alt_url = computer_url;
   }
   time_labels = ["short","10min","20min","30min","long"];
+  focus_labels = ["lowfocus", "highfocus"];
   energy_labels = ["lowenergy", "highenergy"];
   context_labels = ["home","anywhere","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer"];
   due_labels = ["overdue", "due today", "due within 3 days", "no due date", "created last 2 days", "created last 4 days"];
@@ -24,7 +25,7 @@ function myFunction(bComputer) {
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
   first_group = true;
-  groups = [time_labels, energy_labels, context_labels];
+  groups = [time_labels, focus_labels, energy_labels, context_labels];
   for(var i = 0; i < groups.length; i++){
 	group = groups[i];
 	  if(anyTrue(group)){
@@ -154,6 +155,9 @@ function anyTrue(labels) {
               <li><label><input type="checkbox" id="20min"> 20min</label></li>
 			  <li><label><input type="checkbox" id="30min"> 30min</label></li>
 			  <li><label><input type="checkbox" id="long"> long </label></li>
+			  </br>
+			  <li><label><input type="checkbox" id="highfocus"> high_focus </label></li>
+              <li><label><input type="checkbox" id="lowfocus"> low_focus </label></li>
 			  </br>
 			  <li><label><input type="checkbox" id="highenergy"> high_energy </label></li>
               <li><label><input type="checkbox" id="lowenergy"> low_energy </label></li>
