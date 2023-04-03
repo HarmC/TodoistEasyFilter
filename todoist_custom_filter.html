@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction() {
+  time_labels = ["short","10min","20min","30min","long"];
+  energy_labels = ["low_energy", "high_energy"];
+  context_labels = ["home","anywhere","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma"];
+  due_labels = ["overdue", "due today", "due within 3 days", "no due date", "created last 2 days", "created last 4 days"];
+  due_searches = ["over due", "due today", "3 days", "no date", "created after: -2 days", "created after: -4 days"];
+  project_labels = ["PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk"];
+  project_searches = ["##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk"];
+  exclusion_labels = ["niet routines","fun"];
+  exclusion_searches = ["!(##Routines | @routine)","!@fun"];
+  document.getElementById("demo").innerHTML = "";
+  outputstring = ""
+  first_group = true;
+  groups = [time_labels, energy_labels, context_labels];
+  for(var i = 0; i < groups.length; i++){
+	group = groups[i];
+	  if(anyTrue(group)){
+			if(!first_group){outputstring+=" & ";}
+			first_group = false;
+			outputstring+=atify(group);
+	  }
+  }
+  groups = [due_labels,project_labels];
+  queries_list = [due_searches, project_searches];
+  for(var i = 0; i < groups.length; i++){
+	group = groups[i];
+	queries = queries_list[i];
+	  if(anyTrue(group)){
+			if(!first_group){outputstring+=" & ";}
+			first_group = false;
+			outputstring+=addify(group,queries);
+	  }
+  }
+  groups = [exclusion_labels];
+  queries_list = [exclusion_searches];
+  for(var i = 0; i < groups.length; i++){
+	group = groups[i];
+	queries = queries_list[i];
+	  if(anyTrue(group)){
+			if(!first_group){outputstring+=" & ";}
+			first_group = false;
+			outputstring+=andify(group,queries);
+	  }
+  }
+  document.getElementById("demo").innerHTML += "</br>in todoist you will filter for: " + outputstring;
+  convertedstring = outputstring;
+  convertedstring = convertedstring.replaceAll('@','%40');
+  convertedstring = convertedstring.replaceAll(' ','%20');
+  convertedstring = convertedstring.replaceAll('&','%26');
+  convertedstring = convertedstring.replaceAll('|','%7C');
+  convertedstring = convertedstring.replaceAll('#','%23');
+  document.getElementById("demo").innerHTML += "</br>URL to do so = https://todoist.com/app/search/" + convertedstring;
+  document.getElementById("demo").innerHTML += "</br>URL4phone to do so = https://todoist.com/app?lang=nl?#agenda%2F%" + convertedstring;
+  document.getElementById("demo").innerHTML += '</br><a href="https://todoist.com/app/search/' + convertedstring + '">link</a>';
+  window.open("https://todoist.com/app/search/" + convertedstring, "_blank");
+}
+
+//appending an @ symbol in front of the name creates a valid todoist search term for these labels
+function atify(labels){
+	firstlabel = true;
+	output = "(";
+	for(var i = 0; i<labels.length; i++){
+		if(document.getElementById(labels[i]).checked){
+			if(firstlabel){
+				firstlabel = false;
+				output += "@" + labels[i];
+			}else{
+				output += " | @" + labels[i];
+			}
+		}
+	}
+	return output+")";
+}
+
+//adding search queries based on the checkboxes that are linked to the labels
+function addify(labels,queries){
+	firstlabel = true;
+	output = "(";
+	for(var i = 0; i<labels.length; i++){
+		if(document.getElementById(labels[i]).checked){
+			if(firstlabel){
+				firstlabel = false;
+				output += queries[i];
+			}else{
+				output += " | " + queries[i];
+			}
+		}
+	}
+	return output+")";
+}
+
+function andify(labels,queries){
+	firstlabel = true;
+	output = "(";
+	for(var i = 0; i<labels.length; i++){
+		if(document.getElementById(labels[i]).checked){
+			if(firstlabel){
+				firstlabel = false;
+				output += queries[i];
+			}else{
+				output += " & " + queries[i];
+			}
+		}
+	}
+	return output+")";
+}
+
+function anyTrue(labels) {
+	for(var i = 0; i < labels.length; i++){
+		if(document.getElementById(labels[i]).checked){return true;}
+	}
+	return false;
+}
+
+</script>
+</head>
+<body>
+
+<h1>Todoist easy filter creation</h1>
+
+<p id="demo"></p>
+
+    <section>
+      <h1 class="other-class">Forms</h1>
+      <form>
+        <fieldset>
+          <!--
+          Every fieldset must contain a legend. IE barfs if it's not there.
+          It's no fun.
+          -->
+          <legend>Todoist filter options</legend>
+          <div>
+            
+            <ul>
+              <li><label><input type="checkbox" id="short"> short</label></li>
+              <li><label><input type="checkbox" id="10min"> 10min</label></li>
+              <li><label><input type="checkbox" id="20min"> 20min</label></li>
+			  <li><label><input type="checkbox" id="30min"> 30min</label></li>
+			  <li><label><input type="checkbox" id="long"> long </label></li>
+			  </br>
+			  <li><label><input type="checkbox" id="high_energy"> high_energy </label></li>
+              <li><label><input type="checkbox" id="low_energy"> low_energy </label></li>
+			  </br>
+              <li><label><input type="checkbox" id="home"> home </label></li>
+			  <li><label><input type="checkbox" id="anywhere"> anywhere </label></li>
+			  <li><label><input type="checkbox" id="bujo"> bujo </label></li>
+			  <li><label><input type="checkbox" id="eindhoven"> eindhoven </label></li>
+			  <li><label><input type="checkbox" id="Sioux"> Sioux </label></li>
+			  <li><label><input type="checkbox" id="laptop"> laptop </label></li>
+			  <li><label><input type="checkbox" id="asml_laptop"> ASML laptop </label></li>
+			  <li><label><input type="checkbox" id="sioux_laptop"> Sioux laptop </label></li>
+			  <li><label><input type="checkbox" id="Emma"> Emma </label></li>
+			  </br>
+			  <li><label><input type="checkbox" id="overdue"> overdue </label></li>
+			  <li><label><input type="checkbox" id="due today"> due today </label></li>
+			  <li><label><input type="checkbox" id="due within 3 days"> due within 3 days </label></li>
+			  <li><label><input type="checkbox" id="no due date"> no due date </label></li>
+			  <li><label><input type="checkbox" id="created last 2 days"> created last 2 days </label></li>
+			  <li><label><input type="checkbox" id="created last 4 days"> created last 4 days </label></li>
+			  </br>
+			  <li><label><input type="checkbox" id="PERSOONLIJK"> Persoonlijk </label></li>
+			  <li><label><input type="checkbox" id="LIME"> LIME </label></li>
+			  <li><label><input type="checkbox" id="ASML_project"> ASML_project </label></li>
+			  <li><label><input type="checkbox" id="selfdev_mathware"> selfdev_mathware </label></li>
+			  <li><label><input type="checkbox" id="INBOX & @werk"> inbox + werklabel</label></li>
+			  <li><label><input type="checkbox" id="INBOX & !@werk"> inbox zonder werklabel</label></li>
+			  </br>
+			  <li><label><input type="checkbox" id="niet routines"> niet routines</label></li>
+			  <li><label><input type="checkbox" id="fun"> !@fun</label></li>
+			  
+			  
+			  
+            </ul>
+          </div>
+          <div>
+            <button type="button" onclick="myFunction()"> submit </button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+
+</body>
+</html> 
