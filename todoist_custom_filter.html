@@ -65,7 +65,7 @@ function myFunction(bComputer) {
   document.getElementById("demo").innerHTML += "</br>URL of first link below: " + base_url + convertedstring;
   document.getElementById("demo").innerHTML += '</br><a href="' + base_url + convertedstring + '">link</a>';
   document.getElementById("demo").innerHTML += '</br><a href="' + alt_url + convertedstring + '">alt_link</a>';
-  window.open("https://todoist.com/app/search/" + convertedstring, "_blank");
+  window.open(base_url + convertedstring, "_blank");
 }
 
 //appending an @ symbol in front of the name creates a valid todoist search term for these labels
