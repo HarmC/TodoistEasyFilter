@@ -12,6 +12,7 @@ function myFunction(bComputer) {
 	base_url = phone_url;
 	alt_url = computer_url;
   }
+  next_action_label = ["next_action"];
   time_labels = ["short","medium","long"];
   focus_labels = ["lowfocus", "highfocus"];
   energy_labels = ["lowenergy", "highenergy"];
@@ -25,7 +26,7 @@ function myFunction(bComputer) {
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
   first_group = true;
-  groups = [time_labels, focus_labels, energy_labels, context_labels];
+  groups = [next_action_label, time_labels, focus_labels, energy_labels, context_labels];
   for(var i = 0; i < groups.length; i++){
 	group = groups[i];
 	  if(anyTrue(group)){
@@ -150,6 +151,8 @@ function anyTrue(labels) {
           <div>
             
             <ul>
+              <li><label><input type="checkbox" id="next_action"> next_action</label></li>
+			  </br>
               <li><label><input type="checkbox" id="short"> short</label></li>
               <li><label><input type="checkbox" id="medium"> medium (10-60min)</label></li>
 			  <li><label><input type="checkbox" id="long"> long </label></li>
