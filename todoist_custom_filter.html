@@ -14,7 +14,7 @@ function myFunction(bComputer) {
   }
   next_action_label = ["next_action"];
   time_labels = ["short","medium","long"];
-  focus_labels = ["lowfocus", "highfocus"];
+  focus_labels = ["inactiveattention", "activeattention", "proactiveattention"];
   energy_labels = ["lowenergy", "highenergy"];
   context_labels = ["home","anywhere","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer"];
   due_labels = ["overdue", "due today", "due within 3 days", "no due date", "created last 2 days", "created last 4 days"];
@@ -157,8 +157,9 @@ function anyTrue(labels) {
               <li><label><input type="checkbox" id="medium"> medium (10-60min)</label></li>
 			  <li><label><input type="checkbox" id="long"> long </label></li>
 			  </br>
-			  <li><label><input type="checkbox" id="highfocus"> high_focus </label></li>
-              <li><label><input type="checkbox" id="lowfocus"> low_focus </label></li>
+			  <li><label><input type="checkbox" id="proactiveattention"> proactive attention </label></li>
+			  <li><label><input type="checkbox" id="activeattention"> active attention </label></li>
+              <li><label><input type="checkbox" id="inactiveattention"> inactive attention </label></li>
 			  </br>
 			  <li><label><input type="checkbox" id="highenergy"> high_energy </label></li>
               <li><label><input type="checkbox" id="lowenergy"> low_energy </label></li>
