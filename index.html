@@ -12,13 +12,14 @@ function myFunction(bComputer) {
 	base_url = phone_url;
 	alt_url = computer_url;
   }
-  next_action_label = ["next_action"];
   time_labels = ["short","medium","long"];
   focus_labels = ["inactiveattention", "activeattention", "proactiveattention"];
   energy_labels = ["lowenergy", "highenergy"];
   context_labels = ["home","anywhere","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer"];
-  due_labels = ["overdue", "due today", "due within 3 days", "no due date", "created last 2 days", "created last 4 days"];
-  due_searches = ["over due", "due today", "3 days", "no date", "created after: -2 days", "created after: -4 days"];
+  due_labels = ["overdue", "due today", "due within 3 days", "no due date", "recurring", "created last 2 days", "created last 4 days"];
+  due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
+  next_action_label = ["next_action","wachten","none"];
+  next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
   project_labels = ["PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk"];
   project_searches = ["##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk"];
   exclusion_labels = ["niet routines","fun"];
@@ -26,7 +27,7 @@ function myFunction(bComputer) {
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
   first_group = true;
-  groups = [next_action_label, time_labels, focus_labels, energy_labels, context_labels];
+  groups = [time_labels, focus_labels, energy_labels, context_labels];
   for(var i = 0; i < groups.length; i++){
 	group = groups[i];
 	  if(anyTrue(group)){
@@ -35,8 +36,8 @@ function myFunction(bComputer) {
 			outputstring+=atify(group);
 	  }
   }
-  groups = [due_labels,project_labels];
-  queries_list = [due_searches, project_searches];
+  groups = [next_action_label, due_labels,project_labels];
+  queries_list = [next_action_searches, due_searches, project_searches];
   for(var i = 0; i < groups.length; i++){
 	group = groups[i];
 	queries = queries_list[i];
@@ -152,6 +153,8 @@ function anyTrue(labels) {
             
             <ul>
               <li><label><input type="checkbox" id="next_action"> next_action</label></li>
+			  <li><label><input type="checkbox" id="wachten"> wachten</label></li>
+			  <li><label><input type="checkbox" id="none"> geen van beide</label></li>
 			  </br>
               <li><label><input type="checkbox" id="short"> short</label></li>
               <li><label><input type="checkbox" id="medium"> medium (10-60min)</label></li>
@@ -179,6 +182,7 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="due today"> due today </label></li>
 			  <li><label><input type="checkbox" id="due within 3 days"> due within 3 days </label></li>
 			  <li><label><input type="checkbox" id="no due date"> no due date </label></li>
+			  <li><label><input type="checkbox" id="recurring"> recurring </label></li>
 			  <li><label><input type="checkbox" id="created last 2 days"> created last 2 days </label></li>
 			  <li><label><input type="checkbox" id="created last 4 days"> created last 4 days </label></li>
 			  </br>
