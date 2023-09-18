@@ -14,7 +14,7 @@ function myFunction(bComputer) {
   }
   time_labels = ["short","medium","long"];
   focus_labels = ["inactiveattention", "activeattention", "proactiveattention"];
-  energy_labels = ["lowenergy", "highenergy"];
+  energy_labels = ["lowenergy", "mediumenergy", "highenergy"];
   context_labels = ["home","anywhere","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer"];
   due_labels = ["overdue", "due today", "due within 3 days", "no due date", "recurring", "created last 2 days", "created last 4 days"];
   due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
@@ -22,8 +22,8 @@ function myFunction(bComputer) {
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
   project_labels = ["PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk"];
   project_searches = ["##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk"];
-  exclusion_labels = ["niet routines","fun"];
-  exclusion_searches = ["!(##Routines | @routine)","!@fun"];
+  exclusion_labels = ["niet routines","fun","!OUD"];
+  exclusion_searches = ["!(##Routines | @routine)","!@fun","!##OUD"];
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
   first_group = true;
@@ -165,6 +165,7 @@ function anyTrue(labels) {
               <li><label><input type="checkbox" id="inactiveattention"> inactive attention </label></li>
 			  </br>
 			  <li><label><input type="checkbox" id="highenergy"> high_energy </label></li>
+			  <li><label><input type="checkbox" id="mediumenergy"> medium_energy </label></li>
               <li><label><input type="checkbox" id="lowenergy"> low_energy </label></li>
 			  </br>
               <li><label><input type="checkbox" id="home"> home </label></li>
@@ -194,6 +195,7 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="INBOX & !@werk"> inbox zonder werklabel</label></li>
 			  </br>
 			  <li><label><input type="checkbox" id="niet routines"> niet routines</label></li>
+			  <li><label><input type="checkbox" id="!OUD"> !##OUD</label></li>
 			  <li><label><input type="checkbox" id="fun"> !@fun</label></li>
 			  
 			  
