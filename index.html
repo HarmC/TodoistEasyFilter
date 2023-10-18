@@ -20,8 +20,8 @@ function myFunction(bComputer) {
   due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
   next_action_label = ["next_action","wachten","none"];
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
-  project_labels = ["PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk","PrioProjects"];
-  project_searches = ["##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects"];
+  project_labels = ["PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
+  project_searches = ["##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
   exclusion_labels = ["niet routines","fun","!OUD"];
   exclusion_searches = ["!(##Routines | @routine)","!@fun","!##OUD"];
   document.getElementById("demo").innerHTML = "";
@@ -195,6 +195,7 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="INBOX & @werk"> inbox + werklabel</label></li>
 			  <li><label><input type="checkbox" id="INBOX & !@werk"> inbox zonder werklabel</label></li>
 			  <li><label><input type="checkbox" id="PrioProjects"> PrioProjects</label></li>
+			  <li><label><input type="checkbox" id="AreaOfResponsibility"> AreaOfResponsibility</label></li>
 			  </br>
 			  <li><label><input type="checkbox" id="niet routines"> niet routines</label></li>
 			  <li><label><input type="checkbox" id="!OUD"> !##OUD</label></li>
