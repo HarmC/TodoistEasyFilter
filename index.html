@@ -23,6 +23,14 @@ function myFunction(bComputer) {
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
   project_labels = ["PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
   project_searches = ["##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
+  lack_energy_label = ["no-energy"];
+  lack_res_label = ["no-res"];
+  lack_focus_label = ["no-focus"];
+  lack_time_label = ["no-time"];
+  lack_energy_search = ["(!@lowenergy & !@mediumenergy & !@highenergy)"];
+  lack_res_search = ["(!@lowres & !@mediumres & !@highres)"];
+  lack_focus_search = ["(!@inactiveattention & !@activeattention & !@proactiveattention)"];
+  lack_time_search = ["(!@short & !@medium & !@long)"];
   exclusion_labels = ["niet routines","fun","!OUD"];
   exclusion_searches = ["!(##Routines | @routine)","!@fun","!##OUD"];
   document.getElementById("demo").innerHTML = "";
@@ -37,8 +45,8 @@ function myFunction(bComputer) {
 			outputstring+=atify(group);
 	  }
   }
-  groups = [next_action_label, due_labels,project_labels];
-  queries_list = [next_action_searches, due_searches, project_searches];
+  groups = [next_action_label, due_labels,project_labels, lack_energy_label, lack_focus_label, lack_res_label, lack_time_label];
+  queries_list = [next_action_searches, due_searches, project_searches, lack_energy_search, lack_focus_search, lack_res_search, lack_time_search];
   for(var i = 0; i < groups.length; i++){
 	group = groups[i];
 	queries = queries_list[i];
@@ -172,6 +180,11 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="highres"> high resistance </label></li>
 			  <li><label><input type="checkbox" id="mediumres"> medium resistance </label></li>
               <li><label><input type="checkbox" id="lowres"> low resistance </label></li>
+			  </br>
+			  <li><label><input type="checkbox" id="no-energy"> no energy </label></li>
+			  <li><label><input type="checkbox" id="no-res"> no res </label></li>
+              <li><label><input type="checkbox" id="no-focus"> no focus </label></li>
+			  <li><label><input type="checkbox" id="no-time"> no time </label></li>
 			  </br>
               <li><label><input type="checkbox" id="home"> home </label></li>
 			  <li><label><input type="checkbox" id="anywhere"> anywhere </label></li>
