@@ -21,16 +21,16 @@ function myFunction(bComputer) {
   due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
   next_action_label = ["next_action","wachten","none"];
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
-  project_labels = ["PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
-  project_searches = ["##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
+  project_labels = ["LooseActions","TICKLER","PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
+  project_searches = ["#LooseActions","#TICKLER","##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
   lack_energy_label = ["no-energy"];
   lack_res_label = ["no-res"];
   lack_focus_label = ["no-focus"];
   lack_time_label = ["no-time"];
   lack_energy_search = ["(!@lowenergy & !@mediumenergy & !@highenergy)"];
-  lack_res_search = ["(!@lowres & !@mediumres & !@highres)"];
-  lack_focus_search = ["(!@inactiveattention & !@activeattention & !@proactiveattention)"];
-  lack_time_search = ["(!@short & !@medium & !@long)"];
+  lack_res_search = ["!@lowres & !@mediumres & !@highres"];
+  lack_focus_search = ["!@inactiveattention & !@activeattention & !@proactiveattention"];
+  lack_time_search = ["!@short & !@medium & !@long"];
   exclusion_labels = ["niet routines","fun","!OUD"];
   exclusion_searches = ["!(##Routines | @routine)","!@fun","!##OUD"];
   document.getElementById("demo").innerHTML = "";
@@ -206,6 +206,8 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="created last 2 days"> created last 2 days </label></li>
 			  <li><label><input type="checkbox" id="created last 4 days"> created last 4 days </label></li>
 			  </br>
+			  <li><label><input type="checkbox" id="LooseActions"> LooseActions </label></li>
+			  <li><label><input type="checkbox" id="TICKLER"> TICKLER </label></li>
 			  <li><label><input type="checkbox" id="PERSOONLIJK"> Persoonlijk </label></li>
 			  <li><label><input type="checkbox" id="LIME"> LIME </label></li>
 			  <li><label><input type="checkbox" id="ASML_project"> ASML_project </label></li>
