@@ -31,7 +31,7 @@ function myFunction(bComputer) {
   lack_res_search = ["!@lowres & !@mediumres & !@highres"];
   lack_focus_search = ["!@inactiveattention & !@activeattention & !@proactiveattention"];
   lack_time_search = ["!@short & !@medium & !@long"];
-  exclusion_labels = ["niet routines","fun","!OUD"];
+  exclusion_labels = ["niet routines","nonfun","!OUD"];
   exclusion_searches = ["!(##Routines | @routine)","!@fun","!##OUD"];
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
@@ -221,7 +221,7 @@ function anyTrue(labels) {
 			  </br>
 			  <li><label><input type="checkbox" id="niet routines"> niet routines</label></li>
 			  <li><label><input type="checkbox" id="!OUD"> !##OUD</label></li>
-			  <li><label><input type="checkbox" id="fun"> !@fun</label></li>
+			  <li><label><input type="checkbox" id="nonfun"> !@fun</label></li>
 			  
 			  
 			  
