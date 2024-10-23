@@ -2,6 +2,13 @@
 <html>
 <head>
 <script>
+function loadCookie() {
+	const previously_used_labels = localStorage.getItem("checkedLabels").split(",");
+	for(var i = 0; i < previously_used_labels.length; i++){
+	document.getElementById(previously_used_labels[i]).checked = true;	
+  }
+}
+
 function myFunction(bComputer) {
   computer_url = "https://todoist.com/app/search/"; //for computer
   phone_url = "https://todoist.com/app?lang=nl?#agenda%2F"; //for Android phone
@@ -22,6 +29,12 @@ function myFunction(bComputer) {
   exclusion_labels = ["!PrivateResources","!Work","!CustomCollections","niet routines","nonfun","!OUD","!reviewdit"];
   exclusion_searches = ["!##PrivateResources","!##WORK","!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD","!@reviewdit"];
   document.getElementById("demo").innerHTML = "";
+  all_labels = context_labels.concat(due_labels).concat(next_action_label).concat(project_labels).concat(exclusion_labels)
+  all_checked_labels = [];
+  for(var i = 0; i<all_labels.length; i++){
+	if(document.getElementById(all_labels[i]).checked) {all_checked_labels.push(all_labels[i])}
+  }
+  localStorage.setItem("checkedLabels", all_checked_labels);
   outputstring = ""
   first_group = true;
   groups = [context_labels];
@@ -127,7 +140,7 @@ function anyTrue(labels) {
 
 </script>
 </head>
-<body>
+<body onload = "loadCookie()">
 
 <h1>Todoist easy filter creation</h1>
 
