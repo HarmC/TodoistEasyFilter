@@ -19,8 +19,8 @@ function myFunction(bComputer) {
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
   project_labels = ["LooseActions","TICKLER","PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
   project_searches = ["#LooseActions","#TICKLER","##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
-  exclusion_labels = ["!CustomCollections","niet routines","nonfun","!OUD"];
-  exclusion_searches = ["!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD"];
+  exclusion_labels = ["!PrivateResources","!Work","!CustomCollections","niet routines","nonfun","!OUD"];
+  exclusion_searches = ["!##PrivateResources","!##WORK","!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD"];
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
   first_group = true;
@@ -187,6 +187,8 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="PrioProjects"> PrioProjects</label></li>
 			  <li><label><input type="checkbox" id="AreaOfResponsibility"> AreaOfResponsibility</label></li>
 			  </br>
+			  <li><label><input type="checkbox" id="!PrivateResources"> !PrivateResources</label></li>
+			  <li><label><input type="checkbox" id="!Work"> !Work</label></li>
 			  <li><label><input type="checkbox" id="!CustomCollections"> !Custom Collections</label></li>
 			  <li><label><input type="checkbox" id="niet routines"> niet routines</label></li>
 			  <li><label><input type="checkbox" id="!OUD"> !##OUD</label></li>
