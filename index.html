@@ -12,15 +12,15 @@ function myFunction(bComputer) {
 	base_url = phone_url;
 	alt_url = computer_url;
   }
-  context_labels = ["home","anywhere","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer","bouwmarkt","errands"];
+  context_labels = ["home","anywhere","telefoon","Sophie","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer","bouwmarkt","errands"];
   due_labels = ["overdue", "due today", "due within 3 days", "no due date", "recurring", "created last 2 days", "created last 4 days"];
   due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
   next_action_label = ["next_action","wachten","none"];
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
   project_labels = ["LooseActions","TICKLER","PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
   project_searches = ["#LooseActions","#TICKLER","##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
-  exclusion_labels = ["niet routines","nonfun","!OUD"];
-  exclusion_searches = ["!(##Routines | @routine)","!@fun","!##OUD"];
+  exclusion_labels = ["!CustomCollections","niet routines","nonfun","!OUD"];
+  exclusion_searches = ["!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD"];
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
   first_group = true;
@@ -155,6 +155,8 @@ function anyTrue(labels) {
 			  </br>
               <li><label><input type="checkbox" id="home"> home </label></li>
 			  <li><label><input type="checkbox" id="anywhere"> anywhere </label></li>
+			  <li><label><input type="checkbox" id="telefoon"> telefoon </label></li>
+			  <li><label><input type="checkbox" id="Sophie"> Sophie </label></li>
 			  <li><label><input type="checkbox" id="bujo"> bujo </label></li>
 			  <li><label><input type="checkbox" id="eindhoven"> eindhoven </label></li>
 			  <li><label><input type="checkbox" id="Sioux"> Sioux </label></li>
@@ -185,6 +187,7 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="PrioProjects"> PrioProjects</label></li>
 			  <li><label><input type="checkbox" id="AreaOfResponsibility"> AreaOfResponsibility</label></li>
 			  </br>
+			  <li><label><input type="checkbox" id="!CustomCollections"> !Custom Collections</label></li>
 			  <li><label><input type="checkbox" id="niet routines"> niet routines</label></li>
 			  <li><label><input type="checkbox" id="!OUD"> !##OUD</label></li>
 			  <li><label><input type="checkbox" id="nonfun"> !@fun</label></li>
