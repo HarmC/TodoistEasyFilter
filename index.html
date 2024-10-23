@@ -19,7 +19,7 @@ function myFunction(bComputer) {
 	base_url = phone_url;
 	alt_url = computer_url;
   }
-  context_labels = ["home","anywhere","telefoon","Sophie","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer","bouwmarkt","errands"];
+  context_labels = ["home","anywhere","telefoon","Sophie","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop","prive_laptop","Emma", "printer","bouwmarkt","errands"];
   due_labels = ["overdue", "due today", "due within 3 days", "no due date", "recurring", "created last 2 days", "created last 4 days"];
   due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
   next_action_label = ["next_action","wachten","none","fun"];
@@ -175,6 +175,7 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="eindhoven"> eindhoven </label></li>
 			  <li><label><input type="checkbox" id="Sioux"> Sioux </label></li>
 			  <li><label><input type="checkbox" id="laptop"> laptop </label></li>
+			  <li><label><input type="checkbox" id="prive_laptop"> prive laptop </label></li>
 			  <li><label><input type="checkbox" id="asml_laptop"> ASML laptop </label></li>
 			  <li><label><input type="checkbox" id="sioux_laptop"> Sioux laptop </label></li>
 			  <li><label><input type="checkbox" id="Emma"> Emma </label></li>
