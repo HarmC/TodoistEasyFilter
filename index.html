@@ -12,10 +12,6 @@ function myFunction(bComputer) {
 	base_url = phone_url;
 	alt_url = computer_url;
   }
-  time_labels = ["short","medium","long"];
-  focus_labels = ["inactiveattention", "activeattention", "proactiveattention"];
-  energy_labels = ["lowenergy", "mediumenergy", "highenergy"];
-  res_labels = ["fun","lowres", "mediumres", "highres"];
   context_labels = ["home","anywhere","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer","bouwmarkt","errands"];
   due_labels = ["overdue", "due today", "due within 3 days", "no due date", "recurring", "created last 2 days", "created last 4 days"];
   due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
@@ -23,20 +19,12 @@ function myFunction(bComputer) {
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
   project_labels = ["LooseActions","TICKLER","PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
   project_searches = ["#LooseActions","#TICKLER","##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
-  lack_energy_label = ["no-energy"];
-  lack_res_label = ["no-res"];
-  lack_focus_label = ["no-focus"];
-  lack_time_label = ["no-time"];
-  lack_energy_search = ["(!@lowenergy & !@mediumenergy & !@highenergy)"];
-  lack_res_search = ["!@lowres & !@mediumres & !@highres"];
-  lack_focus_search = ["!@inactiveattention & !@activeattention & !@proactiveattention"];
-  lack_time_search = ["!@short & !@medium & !@long"];
   exclusion_labels = ["niet routines","nonfun","!OUD"];
   exclusion_searches = ["!(##Routines | @routine)","!@fun","!##OUD"];
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
   first_group = true;
-  groups = [time_labels, focus_labels, energy_labels, res_labels, context_labels];
+  groups = [context_labels];
   for(var i = 0; i < groups.length; i++){
 	group = groups[i];
 	  if(anyTrue(group)){
@@ -45,8 +33,8 @@ function myFunction(bComputer) {
 			outputstring+=atify(group);
 	  }
   }
-  groups = [next_action_label, due_labels,project_labels, lack_energy_label, lack_focus_label, lack_res_label, lack_time_label];
-  queries_list = [next_action_searches, due_searches, project_searches, lack_energy_search, lack_focus_search, lack_res_search, lack_time_search];
+  groups = [next_action_label, due_labels,project_labels];
+  queries_list = [next_action_searches, due_searches, project_searches];
   for(var i = 0; i < groups.length; i++){
 	group = groups[i];
 	queries = queries_list[i];
@@ -164,28 +152,6 @@ function anyTrue(labels) {
               <li><label><input type="checkbox" id="next_action"> next_action</label></li>
 			  <li><label><input type="checkbox" id="wachten"> wachten</label></li>
 			  <li><label><input type="checkbox" id="none"> geen van beide</label></li>
-			  </br>
-              <li><label><input type="checkbox" id="short"> short</label></li>
-              <li><label><input type="checkbox" id="medium"> medium (10-60min)</label></li>
-			  <li><label><input type="checkbox" id="long"> long </label></li>
-			  </br>
-			  <li><label><input type="checkbox" id="proactiveattention"> proactive attention </label></li>
-			  <li><label><input type="checkbox" id="activeattention"> active attention </label></li>
-              <li><label><input type="checkbox" id="inactiveattention"> inactive attention </label></li>
-			  </br>
-			  <li><label><input type="checkbox" id="highenergy"> high_energy </label></li>
-			  <li><label><input type="checkbox" id="mediumenergy"> medium_energy </label></li>
-              <li><label><input type="checkbox" id="lowenergy"> low_energy </label></li>
-			  </br>
-			  <li><label><input type="checkbox" id="highres"> high resistance </label></li>
-			  <li><label><input type="checkbox" id="mediumres"> medium resistance </label></li>
-              <li><label><input type="checkbox" id="lowres"> low resistance </label></li>
-			  <li><label><input type="checkbox" id="fun"> fun </label></li>
-			  </br>
-			  <li><label><input type="checkbox" id="no-energy"> no energy </label></li>
-			  <li><label><input type="checkbox" id="no-res"> no res </label></li>
-              <li><label><input type="checkbox" id="no-focus"> no focus </label></li>
-			  <li><label><input type="checkbox" id="no-time"> no time </label></li>
 			  </br>
               <li><label><input type="checkbox" id="home"> home </label></li>
 			  <li><label><input type="checkbox" id="anywhere"> anywhere </label></li>
