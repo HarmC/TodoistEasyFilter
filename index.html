@@ -15,12 +15,12 @@ function myFunction(bComputer) {
   context_labels = ["home","anywhere","telefoon","Sophie","bujo","eindhoven","Sioux","laptop","asml_laptop","sioux_laptop", "Emma", "printer","bouwmarkt","errands"];
   due_labels = ["overdue", "due today", "due within 3 days", "no due date", "recurring", "created last 2 days", "created last 4 days"];
   due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
-  next_action_label = ["next_action","wachten","none"];
-  next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)"]; 
+  next_action_label = ["next_action","wachten","none","fun"];
+  next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)","@fun"]; 
   project_labels = ["LooseActions","TICKLER","PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
   project_searches = ["#LooseActions","#TICKLER","##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
-  exclusion_labels = ["!PrivateResources","!Work","!CustomCollections","niet routines","nonfun","!OUD"];
-  exclusion_searches = ["!##PrivateResources","!##WORK","!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD"];
+  exclusion_labels = ["!PrivateResources","!Work","!CustomCollections","niet routines","nonfun","!OUD","!reviewdit"];
+  exclusion_searches = ["!##PrivateResources","!##WORK","!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD","!@reviewdit"];
   document.getElementById("demo").innerHTML = "";
   outputstring = ""
   first_group = true;
@@ -152,6 +152,7 @@ function anyTrue(labels) {
               <li><label><input type="checkbox" id="next_action"> next_action</label></li>
 			  <li><label><input type="checkbox" id="wachten"> wachten</label></li>
 			  <li><label><input type="checkbox" id="none"> geen van beide</label></li>
+			  <li><label><input type="checkbox" id="fun"> fun</label></li>
 			  </br>
               <li><label><input type="checkbox" id="home"> home </label></li>
 			  <li><label><input type="checkbox" id="anywhere"> anywhere </label></li>
@@ -193,6 +194,7 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="niet routines"> niet routines</label></li>
 			  <li><label><input type="checkbox" id="!OUD"> !##OUD</label></li>
 			  <li><label><input type="checkbox" id="nonfun"> !@fun</label></li>
+			  <li><label><input type="checkbox" id="!reviewdit"> !@reviewdit</label></li>
 			  
 			  
 			  
