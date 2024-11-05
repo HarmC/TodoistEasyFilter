@@ -25,7 +25,7 @@ function myFunction(bComputer) {
   next_action_label = ["next_action","wachten","none","fun","AnyLooseActions","AnyTickler"];
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)","@fun","(#PrivateLooseActions | #WorkLooseActions)","(#PrivateTickler | #WorkTickler)"]; 
   project_labels = ["PrivateLooseActions","PrivateTickler","PrivateProjects","PrivateAreas","PrivateResources","WorkLooseActions","WorkTickler","WorkProjects","WorkAreas","WorkResources"];
-  project_searches ["#PrivateLooseActions","#PrivateTickler","##PrivateProjects","##PrivateAreas","##PrivateResources","#WorkLooseActions","#WorkTickler","##WorkProjects","##WorkAreas","##WorkResources"]; 
+  project_searches = ["#PrivateLooseActions","#PrivateTickler","##PrivateProjects","##PrivateAreas","##PrivateResources","#WorkLooseActions","#WorkTickler","##WorkProjects","##WorkAreas","##WorkResources"]; 
   exclusion_labels = ["!PrivateResources","!Work","!CustomCollections","niet routines","nonfun","!OUD","!reviewdit"];
   exclusion_searches = ["!##PrivateResources","!##WORK","!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD","!@reviewdit"];
   document.getElementById("demo").innerHTML = "";
@@ -202,7 +202,7 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="PrivateAreas"> PrivateAreas </label></li>
 			  <li><label><input type="checkbox" id="PrivateResources"> PrivateResources </label></li>
 			  <li><label><input type="checkbox" id="WorkLooseActions"> WorkLooseActions </label></li>
-			  <li><label><input type="checkbox" id="WorkTickler"> WorkTickler </label></li>>
+			  <li><label><input type="checkbox" id="WorkTickler"> WorkTickler </label></li>
 			  <li><label><input type="checkbox" id="WorkProjects"> WorkProjects </label></li>
 			  <li><label><input type="checkbox" id="WorkAreas"> WorkAreas </label></li>
 			  <li><label><input type="checkbox" id="WorkResources"> WorkResources </label></li>
