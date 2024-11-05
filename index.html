@@ -24,8 +24,8 @@ function myFunction(bComputer) {
   due_searches = ["over due", "due today", "3 days", "no date", "recurring", "created after: -2 days", "created after: -4 days"];
   next_action_label = ["next_action","wachten","none","fun","AnyLooseActions","AnyTickler"];
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)","@fun","(#PrivateLooseActions | #WorkLooseActions)","(#PrivateTickler | #WorkTickler)"]; 
-  project_labels = ["LooseActions","TICKLER","PERSOONLIJK","LIME", "ASML_project", "selfdev_mathware", "INBOX & @werk", "INBOX & !@werk", "PrioProjects", "AreaOfResponsibility"];
-  project_searches = ["#LooseActions","#TICKLER","##PERSOONLIJK","##LIME", "##ASML_project", "##selfdev_mathware", "#Inbox & @werk", "#inbox & !@werk","##PrioProjects", "##AreaOfResponsibility"];
+  project_labels = ["PrivateLooseActions","PrivateTickler","PrivateProjects","PrivateAreas","PrivateResources","WorkLooseActions","WorkTickler","WorkProjects","WorkAreas","WorkResources"];
+  project_searches ["#PrivateLooseActions","#PrivateTickler","##PrivateProjects","##PrivateAreas","##PrivateResources","#WorkLooseActions","#WorkTickler","##WorkProjects","##WorkAreas","##WorkResources"]; 
   exclusion_labels = ["!PrivateResources","!Work","!CustomCollections","niet routines","nonfun","!OUD","!reviewdit"];
   exclusion_searches = ["!##PrivateResources","!##WORK","!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD","!@reviewdit"];
   document.getElementById("demo").innerHTML = "";
@@ -196,16 +196,16 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="created last 2 days"> created last 2 days </label></li>
 			  <li><label><input type="checkbox" id="created last 4 days"> created last 4 days </label></li>
 			  </br>
-			  <li><label><input type="checkbox" id="LooseActions"> LooseActions </label></li>
-			  <li><label><input type="checkbox" id="TICKLER"> TICKLER </label></li>
-			  <li><label><input type="checkbox" id="PERSOONLIJK"> Persoonlijk </label></li>
-			  <li><label><input type="checkbox" id="LIME"> LIME </label></li>
-			  <li><label><input type="checkbox" id="ASML_project"> ASML_project </label></li>
-			  <li><label><input type="checkbox" id="selfdev_mathware"> selfdev_mathware </label></li>
-			  <li><label><input type="checkbox" id="INBOX & @werk"> inbox + werklabel</label></li>
-			  <li><label><input type="checkbox" id="INBOX & !@werk"> inbox zonder werklabel</label></li>
-			  <li><label><input type="checkbox" id="PrioProjects"> PrioProjects</label></li>
-			  <li><label><input type="checkbox" id="AreaOfResponsibility"> AreaOfResponsibility</label></li>
+			  <li><label><input type="checkbox" id="PrivateLooseActions"> PrivateLooseActions </label></li>
+			  <li><label><input type="checkbox" id="PrivateTickler"> PrivateTickler </label></li>
+			  <li><label><input type="checkbox" id="PrivateProjects"> PrivateProjects </label></li>
+			  <li><label><input type="checkbox" id="PrivateAreas"> PrivateAreas </label></li>
+			  <li><label><input type="checkbox" id="PrivateResources"> PrivateResources </label></li>
+			  <li><label><input type="checkbox" id="WorkLooseActions"> WorkLooseActions </label></li>
+			  <li><label><input type="checkbox" id="WorkTickler"> WorkTickler </label></li>>
+			  <li><label><input type="checkbox" id="WorkProjects"> WorkProjects </label></li>
+			  <li><label><input type="checkbox" id="WorkAreas"> WorkAreas </label></li>
+			  <li><label><input type="checkbox" id="WorkResources"> WorkResources </label></li>
 			  </br>
 			  <li><label><input type="checkbox" id="!PrivateResources"> !PrivateResources</label></li>
 			  <li><label><input type="checkbox" id="!Work"> !Work</label></li>
