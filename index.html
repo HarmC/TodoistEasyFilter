@@ -139,6 +139,7 @@ function anyTrue(labels) {
 }
 
 </script>
+<link rel="stylesheet" href="index.css">
 </head>
 <body onload = "loadCookie()">
 
@@ -155,6 +156,7 @@ function anyTrue(labels) {
           It's no fun.
           -->
           <legend>Todoist filter options</legend>
+		  
 		  <div>
             <button type="button" onclick="myFunction(1)" style="width:200px;height:40px;"> submit@pc </button>
             <button type="button" onclick="myFunction(0)" style="width:200px;height:40px;"> submit@phone </button>
@@ -162,6 +164,8 @@ function anyTrue(labels) {
           <div>
             
             <ul>
+			<div class="items">
+			<div class="item group-a">
               <li><label><input type="checkbox" id="next_action"> next_action</label></li>
 			  <li><label><input type="checkbox" id="wachten"> wachten</label></li>
 			  <li><label><input type="checkbox" id="none"> geen van beide</label></li>
@@ -188,6 +192,8 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="bouwmarkt"> bouwmarkt </label></li>
 			  <li><label><input type="checkbox" id="errands"> errands </label></li>
 			  </br>
+		  </div>
+		  <div class="item group-b">
 			  <li><label><input type="checkbox" id="overdue"> overdue </label></li>
 			  <li><label><input type="checkbox" id="due today"> due today </label></li>
 			  <li><label><input type="checkbox" id="due within 3 days"> due within 3 days </label></li>
@@ -214,11 +220,10 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="!OUD"> !##OUD</label></li>
 			  <li><label><input type="checkbox" id="nonfun"> !@fun</label></li>
 			  <li><label><input type="checkbox" id="!reviewdit"> !@reviewdit</label></li>
-			  
-			  
-			  
+		    </div>
             </ul>
           </div>
+		  </div>
         </fieldset>
       </form>
     </section>
