@@ -26,8 +26,8 @@ function myFunction(bComputer) {
   next_action_searches = ["@next_action","@wachten","(!@next_action & !@wachten)","@fun","(#PrivateLooseActions | #WorkLooseActions)","(#PrivateTickler | #WorkTickler)"]; 
   project_labels = ["PrivateLooseActions","PrivateTickler","PrivateProjects","PrivateAreas","PrivateResources","WorkLooseActions","WorkTickler","WorkProjects","WorkAreas","WorkResources"];
   project_searches = ["#PrivateLooseActions","#PrivateTickler","##PrivateProjects","##PrivateAreas","##PrivateResources","#WorkLooseActions","#WorkTickler","##WorkProjects","##WorkAreas","##WorkResources"]; 
-  exclusion_labels = ["!PrivateResources","!Work","!CustomCollections","niet routines","nonfun","!OUD","!reviewdit"];
-  exclusion_searches = ["!##PrivateResources","!##WORK","!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD","!@reviewdit"];
+  exclusion_labels = ["!PrivateResources","!Work","!CustomCollections","niet routines","nonfun","!OUD","!reviewdit","!selfdev"];
+  exclusion_searches = ["!##PrivateResources","!##WORK","!##CustomCollections","!(##Routines | @routine)","!@fun","!##OUD","!@reviewdit","!@selfdev"];
   document.getElementById("demo").innerHTML = "";
   all_labels = context_labels.concat(due_labels).concat(next_action_label).concat(project_labels).concat(exclusion_labels)
   all_checked_labels = [];
@@ -220,6 +220,7 @@ function anyTrue(labels) {
 			  <li><label><input type="checkbox" id="!OUD"> !##OUD</label></li>
 			  <li><label><input type="checkbox" id="nonfun"> !@fun</label></li>
 			  <li><label><input type="checkbox" id="!reviewdit"> !@reviewdit</label></li>
+			  <li><label><input type="checkbox" id="!selfdev"> !@selfdev</label></li>
 		    </div>
             </ul>
           </div>
